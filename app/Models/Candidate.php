@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Candidate extends Model
 {
     protected $table = 'candidate';
+    protected $fillable = ['full_name', 'campaign_id']; 
 
     // Кандидат принадлежит кампании
     public function campaign()

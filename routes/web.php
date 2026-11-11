@@ -19,4 +19,15 @@ Route::get('/region', [RegionController::class, 'index']);
 Route::get('/region/{id}', [RegionController::class, 'show']);
 
 Route::get('/polling_station/{id}', [PollingStationController::class, 'show']);
+
+// --- CRUD: Candidate (таблица candidate с внешним ключом campaign_id) ---
+
+// Важно: маршруты с фиксированными словами (create) должны быть объявлены
+// РАНЬШЕ маршрута /candidate/{id}, иначе "create" будет воспринят как {id}
+Route::get('/candidate', [CandidateController::class, 'index']);
+Route::get('/candidate/create', [CandidateController::class, 'create']);
+Route::post('/candidate', [CandidateController::class, 'store']);
+Route::get('/candidate/edit/{id}', [CandidateController::class, 'edit']);
+Route::post('/candidate/update/{id}', [CandidateController::class, 'update']);
+Route::get('/candidate/destroy/{id}', [CandidateController::class, 'destroy']);
 Route::get('/candidate/{id}', [CandidateController::class, 'show']);
